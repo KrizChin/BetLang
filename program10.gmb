@@ -1,0 +1,6 @@
+LetsGamble
+  bankroll 100
+  bet 50 on roulette "black"
+  bet 50 on roulette "red"
+  bet 50 on roulette "green"
+quit

@@ -1,0 +1,8 @@
+LetsGamble
+  bankroll 100
+  simulate 10000
+    bet 50 on slots
+    bet 50 on slots
+    bet 50 on slots
+  stop
+quit

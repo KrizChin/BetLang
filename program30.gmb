@@ -1,0 +1,17 @@
+LetsGamble
+  bankroll 200
+  for i = 0 to 3 do
+    if (bankroll > 100) {
+      bet 50 on roulette "black"
+      bet 50 on slots
+    }
+
+    elif (bankroll == 100) {
+      bet 50 on coinflip "tails"
+    }
+
+    else {
+      bet 50 on coinflip "heads"
+    }
+  end
+quit

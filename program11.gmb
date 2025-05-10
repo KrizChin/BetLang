@@ -1,0 +1,8 @@
+LetsGamble
+  bankroll 200
+  bet 50 on coinflip "heads"
+  bet 100 on coinflip "tails"
+  bet 50 on roulette "black"
+  bet 100 on roulette "red"
+  bet 50 on slots
+quit

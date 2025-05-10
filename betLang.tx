@@ -1,0 +1,68 @@
+Program:
+  'LetsGamble'
+    commands*=Command
+  'quit'
+;
+
+Command:
+  InitialCommand | BetCommand | ForLoop | IfStatement | SimulateCommand
+;
+
+//initialize starting money
+InitialCommand:
+  'bankroll' amount=INT
+;
+
+BetCommand:
+  'bet' amount=INT 'on' gameCall=GameCall
+;
+
+ForLoop:
+  'for' 'i' '=' start=INT 'to' end=INT 'do'
+    commands+=Command+
+  'end'
+;
+
+IfStatement:
+  'if' '(' condition=Condition ')' '{' ifCommands+=Command* '}'
+  elifBlocks*=ElifBlock
+  elseBlock=ElseBlock?
+;
+
+ElifBlock:
+  'elif' '(' condition=Condition ')' '{' elifCommands+=Command* '}';
+
+ElseBlock:
+  'else' '{' elseCommands+=Command* '}';
+
+Condition:
+  left=ID op=Comparator right=INT;
+
+Comparator:
+  '>' | '>=' | '<' | '<=' | '==' | '!=';
+
+SimulateCommand:
+  'simulate' runs=INT
+    commands+=Command+
+  'stop'
+;
+
+GameCall:
+  RouletteCall | CoinFlipCall | SlotsCall
+;
+
+RouletteCall:
+  name='roulette' color = STRING
+;
+
+CoinFlipCall:
+  name='coinflip' side = STRING
+  ;
+
+SlotsCall:
+  name='slots'
+;
+
+Comment:
+  /\/\/.*$/
+;
